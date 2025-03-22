@@ -49,7 +49,7 @@ DRVGEN_FILE_LIST += $(PROJ_DTB_FILES)
 else
 DRVGEN_FILE_LIST :=
 endif
-DRVGEN_TOOL := $(srctree)/tools/dct/DrvGen.py
+DRVGEN_TOOL := /home/vorthex/kernel_sources/android_kernel_xiaomi_mt6768/tools/dct/DrvGen.py
 DRVGEN_FIG := $(wildcard $(dir $(DRVGEN_TOOL))config/*.fig)
 
 .PHONY: drvgen
@@ -62,7 +62,7 @@ $(DRVGEN_FILE_LIST): $(DRVGEN_TOOL) $(DWS_FILE) $(DRVGEN_FIG) $(PROJ_DTS_FILES)
 		dws_path=$(srctree)/$(DRVGEN_PATH)/$$base_prj.dws ;\
 		if [ -f $$dws_path ] ; then \
 			mkdir -p $$prj_path ;\
-			$(python) $(DRVGEN_TOOL) $$dws_path $$prj_path $$prj_path cust_dtsi;\
+			python2 $(DRVGEN_TOOL) $$dws_path $$prj_path $$prj_path cust_dtsi;\
 		fi \
 	done
 
